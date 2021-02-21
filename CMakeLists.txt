@@ -7,6 +7,8 @@ set(LIBS_DIR libs)
 
 add_subdirectory(${LIBS_DIR}/spdlog)
 add_subdirectory(${LIBS_DIR}/detours)
+add_subdirectory(${LIBS_DIR}/imgui)
+
 
 include_directories(${PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}
