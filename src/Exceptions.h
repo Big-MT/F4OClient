@@ -7,6 +7,18 @@
 
 namespace Exceptions {
 
+	class RuntimeException : public std::runtime_error
+	{
+	public:
+		explicit RuntimeException(const std::string &msg) :
+				std::runtime_error(msg.c_str())
+		{ }
+
+		explicit RuntimeException(const char *msg) :
+				std::runtime_error(msg)
+		{ }
+	};
+
 	class DetourException : public RuntimeException
 	{
 	public:
