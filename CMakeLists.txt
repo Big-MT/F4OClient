@@ -6,6 +6,7 @@ set(SRC_DIR src)
 set(LIBS_DIR libs)
 
 add_subdirectory(${LIBS_DIR}/spdlog)
+add_subdirectory(${LIBS_DIR}/detours)
 
 include_directories(${PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}
@@ -24,4 +25,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 target_link_libraries(${PROJECT_NAME}
         spdlog::spdlog_header_only
+        detours
         )
