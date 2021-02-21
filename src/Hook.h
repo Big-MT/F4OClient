@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <cstdint>
 #include <detours.h>
+#include "Exceptions.h"
 
 namespace Utils {
 
@@ -40,12 +41,12 @@ namespace Utils {
 
 			if ( result != NO_ERROR ) {
 				if ( result == ERROR_INVALID_OPERATION ) {
-					/*throw Exceptions::Core::Exceptions::DetourException(
+					throw Exceptions::DetourException(
 							"A pending transaction already exists"
-					);*/
+					);
 				}
 
-				/*throw Exceptions::Core::Exceptions::DetourException("Unknown error");*/
+				throw Exceptions::DetourException("Unknown error");
 			}
 
 			has_open_transaction_ = true;
@@ -57,34 +58,34 @@ namespace Utils {
 			if ( result != NO_ERROR ) {
 				switch ( result ) {
 					case ERROR_INVALID_DATA:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"Target function was changed by third party between steps of the transaction"
-						);*/
+						);
 
 					case ERROR_INVALID_OPERATION:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"No pending transaction exists"
-						);*/
+						);
 
 					case ERROR_INVALID_BLOCK:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"The function referenced is too small to be detoured"
-						);*/
+						);
 
 					case ERROR_INVALID_HANDLE:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"The ppPointer parameter is null or points to a null pointer"
-						);*/
+						);
 
 					case ERROR_NOT_ENOUGH_MEMORY:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"Not enough memory exists to complete the operation"
-						);*/
+						);
 
 					default:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"Unknown error"
-						);*/
+						);
 				}
 			}
 
@@ -96,12 +97,12 @@ namespace Utils {
 
 			if ( result != NO_ERROR ) {
 				if ( result == ERROR_NOT_ENOUGH_MEMORY ) {
-					/*throw Exceptions::Core::Exceptions::DetourException(
+					throw Exceptions::DetourException(
 							"Not enough memory to record identity of thread"
-					);*/
+					);
 				}
 
-				/*throw Exceptions::Core::Exceptions::DetourException("Unknown error");*/
+				throw Exceptions::DetourException("Unknown error");
 			}
 		}
 
@@ -115,11 +116,11 @@ namespace Utils {
 
 				if ( result != NO_ERROR ) {
 					if ( result == ERROR_INVALID_OPERATION ) {
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"No pending transaction exists"
-						);*/
+						);
 					}
-					/*throw Exceptions::Core::Exceptions::DetourException("Unknown error");*/
+					throw Exceptions::DetourException("Unknown error");
 				}
 			}
 
@@ -138,24 +139,24 @@ namespace Utils {
 			if ( result != NO_ERROR ) {
 				switch ( result ) {
 					case ERROR_INVALID_BLOCK:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"The function referenced is too small to be detoured"
-						);*/
+						);
 
 					case ERROR_INVALID_HANDLE:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"The ppPointer parameter is null or points to a null pointer"
-						);*/
+						);
 
 					case ERROR_INVALID_OPERATION:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"No pending transaction exists"
-						);*/
+						);
 
 					case ERROR_NOT_ENOUGH_MEMORY:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"Not enough memory exists to complete the operation"
-						);*/
+						);
 
 					default:
 						/*throw Exceptions::Core::Exceptions::DetourException("Unknown error");*/
@@ -180,29 +181,29 @@ namespace Utils {
 			if ( result != NO_ERROR ) {
 				switch ( result ) {
 					case ERROR_INVALID_BLOCK:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"The function to be detached was too small to be detoured"
-						);*/
+						);
 
 					case ERROR_INVALID_HANDLE:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"The ppPointer parameter is null or points to a null pointer"
-						);*/
+						);
 
 					case ERROR_INVALID_OPERATION:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"No pending transaction exists"
-						);*/
+						);
 
 					case ERROR_NOT_ENOUGH_MEMORY:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"Not enough memory exists to complete the operation"
-						);*/
+						);
 
 					default:
-						/*throw Exceptions::Core::Exceptions::DetourException(
+						throw Exceptions::DetourException(
 								"Unknown error"
-						);*/
+						);
 				}
 			}
 
