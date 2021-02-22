@@ -14,11 +14,13 @@ include_directories(${PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}
         )
 
-file(GLOB SRC_FILES
-        ${SRC_DIR}/*
-        )
-
-add_library(${PROJECT_NAME} SHARED ${SRC_FILES})
+add_library(${PROJECT_NAME} SHARED
+        src/Engine.cpp
+        src/Engine.h
+        src/Exceptions.h
+        src/Hook.h
+        src/Log.h
+        src/main.cpp)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
         CXX_STANDARD 17
