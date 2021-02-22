@@ -1,6 +1,18 @@
 #include <Windows.h>
 
+#include "Engine.h"
+
+
 DWORD WINAPI MainThread(LPVOID lpThreadParameter) {
+	Engine engine;
+
+	Engine::OnInitialize();
+
+	while(!engine.shouldClose){
+		engine.OnTick();
+	}
+
+	engine.OnDestroy();
 
 	return TRUE;
 }
