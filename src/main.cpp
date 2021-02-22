@@ -2,7 +2,7 @@
 
 DWORD WINAPI MainThread(LPVOID lpThreadParameter) {
 
-
+	return TRUE;
 }
 
 BOOL WINAPI Detach(){

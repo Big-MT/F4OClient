@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(F4SBOXClient)
+project(F4OClient)
 
 set(SRC_DIR src)
 set(LIBS_DIR libs)
@@ -8,6 +8,7 @@ set(LIBS_DIR libs)
 add_subdirectory(${LIBS_DIR}/spdlog)
 add_subdirectory(${LIBS_DIR}/detours)
 add_subdirectory(${LIBS_DIR}/imgui)
+add_subdirectory(${LIBS_DIR}/enet)
 
 include_directories(${PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}
